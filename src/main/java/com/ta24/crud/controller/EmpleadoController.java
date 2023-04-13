@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ta24.crud.dto.Empleado;
 import com.ta24.crud.service.EmpleadoServiceImpl;
+import com.ta24.crud.utils.Job;
 
 @RestController
 @RequestMapping("/api")
@@ -38,13 +39,13 @@ public class EmpleadoController {
 	}
 	
 	@PostMapping("/empleados")
-	public Empleado salvarCliente(@RequestBody Empleado empleado) {
+	public Empleado salvarEmpleado(@RequestBody Empleado empleado) {
 		
 		return empleadoServiceImpl.saveEmpleado(empleado);
 	}
 	
 	@GetMapping("/empleados/{id}")
-	public Empleado clienteXID(@PathVariable(name="id") Long id) {
+	public Empleado empleadoXID(@PathVariable(name="id") Long id) {
 		
 		Empleado empleado_xid= new Empleado();
 		

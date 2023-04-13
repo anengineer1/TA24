@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.ta24.crud.dao.IEmpleadoDAO;
 import com.ta24.crud.dto.Empleado;
+import com.ta24.crud.utils.Job;
 
 /**
  * @author yamir
@@ -44,7 +45,24 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 
 	@Override
 	public List<Empleado> listEmpleadoByJob(String trabajo) {
-		return iEmpleadoDAO.findByTrabajo(trabajo);
+		Job trabajo_actual = Job.OPERARIO;
+		switch (trabajo) {
+		case "OPERARIO":
+			trabajo_actual = Job.OPERARIO;
+			break;
+			
+		case "COMERCIAL":
+			trabajo_actual = Job.COMERCIAL;
+			break;
+			
+		case "TECNICO":
+			trabajo_actual = Job.TECNICO;
+			break;
+
+		default:
+			break;
+		}
+		return iEmpleadoDAO.findByTrabajo(trabajo_actual);
 	}
 
 	@Override

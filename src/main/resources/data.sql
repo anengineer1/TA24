@@ -3,7 +3,7 @@ DROP table IF EXISTS empleado;
 create table empleado(
 	id int auto_increment,
 	nombre varchar(250),
-	trabajo ENUM('Comercial','Tecnico','Operario'),
+	trabajo ENUM('COMERCIAL','TECNICO','OPERARIO'),
 	salario int
 );
 
